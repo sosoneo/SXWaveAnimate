@@ -257,7 +257,9 @@ NSString * viewMoveKey = @"waveMoveAnimation";
     if (type == 0)
     {
         [UIView animateWithDuration:kWaterAnimateDuration animations:^{
-            ItLeft = 0;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ItLeft = 0;
+            });
             ItTop = W - ((_precent/100.0) * W);
             if (_precent == 100) {
                 ItTop = kBigImgTopMargin;
@@ -269,7 +271,9 @@ NSString * viewMoveKey = @"waveMoveAnimation";
         ItTop = kBigImgTopMargin;
         ItLeft = -5*W;
         [UIView animateWithDuration:kWaterAnimateDuration animations:^{
-            ItLeft = 0;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ItLeft = 0;
+            });
             ItTop = W - ((_precent/100.0) * W);
             if (_precent == 100) {
                 ItTop = kBigImgTopMargin;
@@ -283,7 +287,9 @@ NSString * viewMoveKey = @"waveMoveAnimation";
             ItLeft = -3*W;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:kWaterAnimateDuration/2 animations:^{
-                ItLeft = 0;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    ItLeft = 0;
+                });
                 ItTop = W - ((_precent/100.0) * W);
                 if (_precent == 100) {
                     ItTop = kBigImgTopMargin;
